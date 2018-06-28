@@ -1,0 +1,72 @@
+body{background: #000;}
+.top{ height: 30px; padding:0 15px; margin:0 0 15px}
+.top img{ width: 30px; height: 30px; margin-right: 5px; border-radius: 50%; }
+.top h5{ font:500 12px/16px 'PingFang SC'; color: #000; }
+.top p{ font:500 12px/14px 'PingFang SC'; color: #999; }
+.main{ padding:0; }
+.main video{ height: 100%; width:100%;/* object-fit: fill; border-radius: 10px; box-shadow:2px 2px 10px #dedede;*/ display: inline-block; /*background: #000;*/}
+.main .cont{ padding:0; margin:0; box-sizing: border-box; text-align: center;}
+.main .cont-w{ width: 100%;/* background: #e5e5e5;*/ position: relative;/* border-radius: 10px; box-shadow:2px 2px 10px #dedede;*/}
+.main .cont-w canvas{position: absolute; width: 100%; height: 100%; left: 0;top: 0;/*border-radius: 10px; box-shadow:0 0 5px #dedede;*/}
+.main .cont-w canvas:first-child{position: relative;}
+.main .btn{ display:block; height: 40px; font:500 14px/40px  'PingFang SC'; color:#fff; text-align: center; background: #0396ff; border-radius: 5px; box-shadow: 0 0 7px #6cbdf7;  }
+.main .btn:hover{text-decoration: none;}
+.nav{ position: fixed; bottom: 0; left: 0; z-index:14;  width: 100%; height: 50px; background: #fff;/* box-shadow:0 -5px 5px #f6f6f6; */}
+.nav li{float: left;  width: 20%; height:50px;}
+.nav li a{display:block; width:36px; height: 50px; margin: 0 auto;}
+.nav li .cam{ background: url(../images/cam.png) no-repeat 0 8px; background-size:27px 36px; }
+.nav li.cur .cam{ background: url(../images/cam_on.png) no-repeat 0 8px; background-size:27px 36px; }
+.nav li .mic{ background: url(../images/mic.png) no-repeat 0 8px; background-size:27px 36px; }
+.nav li.cur .mic{ background: url(../images/mic_on.png) no-repeat -1px 8px; background-size:27px 36px; }
+.nav li .hand{ background: url(../images/hand.png) no-repeat 0 8px; background-size:27px 36px; }
+.nav li.cur .hand{ background: url(../images/hand_on.png) no-repeat 0 8px; background-size:27px 36px; }
+.nav li .peo{ background: url(../images/peo.png) no-repeat 0 8px; background-size:36px 36px; }
+.nav li.cur .peo{ background: url(../images/peo_on.png) no-repeat 0 8px; background-size:36px 36px; }
+.nav li .chat{position: relative;  background: url(../images/chat.png) no-repeat 0 8px; background-size:27px 36px; }
+.nav li.cur .chat{background: url(../images/chat_on.png) no-repeat 1px 8px; background-size:27px 36px; }
+.nav li .chat em{ position: absolute; top:9px; right:1px; display: none; width: 7px; height: 7px; background: #ea5455; border-radius: 50%; }
+.nav li .chat em.on{ display:block;}
+.cam_ms video{display: none; width:120px; height:90px; background: #000;}
+.cam_ms_on video{ display: block; }
+.chat-wrap{position: absolute; left: 4%; width: 92%;bottom: 70px;}
+.chat-main{width: 100%; box-sizing:border-box; padding:0 15px 15px; background: #fff; border-radius: 12px; }
+.chat-main-t{ height: 200px; box-sizing:border-box; padding:10px 0; border-bottom: 1px solid #e5e5e5; overflow:auto;}
+.chat-main-t p,.chat-main-t p strong, .chat-main-t p em{ font:500 12px/22px 'PingFang SC'; color: #999; }
+.chat-main-t p em{ font-weight: 500; color:#0396ff;  }
+.chat-main input.txt{float: left; width: 80%; box-sizing:border-box; height: 30px; margin-top: 12px; padding:0 10px;  font:500 12px/30px  'PingFang SC'; color:#666; background:#f2f2f2; border-radius:15px;}
+.chat-main input.btn_sbm{float: left; width: 18%; height: 30px; margin-left: 2%; margin-top: 12px;font:500 12px/30px  'PingFang SC'; color:#fff; background:#0396fe; border-radius:15px;}
+.chat-main textarea{ font:500 12px/30px  'PingFang SC'; color:#999;}
+
+.list-main{ display: none; position: fixed; left: 0; top:0; width:100%; z-index: 10; background: #f5f5f5; }
+.return{ position: relative; height:50px; background: #fff; box-shadow:0 2px 10px #dedede; }
+.return h4{ font:500 15px/50px 'PingFang SC'; color:#000; text-align: center;}
+.return a{ position: absolute; left:10px; top: 0; display: block; width:40px; height: 50px; text-align: center;  }
+.return a img{ width: 40px; margin:18px 0 0; }
+.stu-list{padding:10px 2%; box-sizing:border-box; }
+.stu-list .tea{ padding-bottom: 15px;}
+.stu-list video{float: left; width: 46%; margin: 2%; /* border-radius: 10px;background:#000;*/}
+.stu-list h6{height: 12px;padding-left: 5px; margin:5px 0 5px 2%; font:500 12px/12px 'PingFang SC'; color:#000; border-left: 2px solid #0396fe; }
+.pop_main{ position: absolute; bottom:65px; left:10px; width:120px; height: 90px; z-index:14; vertical-align: middle; text-align: center;  }
+.stu-list .stu{overflow: auto; overflow-x:hidden; background:#f5f5f5; box-sizing:border-box; padding-bottom:70px;  }
+.ke-content{height: 30px !important;}
+.ke-container{width: 80% !important; box-sizing:border-box; float: left;height: 30px; background:#f2f2f2 !important; margin-top:12px !important;padding:0 10px !important; font:500 12px/30px  'PingFang SC'; color:#666; background:#f2f2f2; border-radius:15px;}
+.canvas{position:absolute;}
+.canvas,#canvas:active{cursor:crosshair;}
+.ke-edit-iframe, .ke-edit-textarea,.ke-edit{width: 100% !important; height: 30px!important; background: none!important;}
+audio,canvas,progress {display: inline-block;vertical-align: baseline;}
+
+.media{position: fixed; left:0; top:30px; width:100%; height: auto; z-index: 11;padding: 10px 2%;box-sizing: border-box;}
+.media .cont{float: left; width:46%; height:auto !important; padding:0; margin:0 2%; border-radius: 10px; border:none;}
+.media .cont video, .main .media .cont-w{height:auto !important;}
+
+.modal-dialog{ position: fixed; width: 100%; height: auto; overflow: hidden;  left:0; bottom: 0; z-index: 15;box-sizing: border-box; padding:75px 10px 0; background: #fff url(../images/tip_icon.jpg) center 25px no-repeat; background-size:84px 84px;  }
+.modal-dialog h4{height: 30px; font-size: 0; line-height:0; text-indent:-9999px; }
+.modal-dialog h4 .close{position: absolute; right:10px; top:10px; display:block;width: 18px; height: 18px; cursor: pointer; background: url(../images/no.png); background-size:cover;}
+.modal-dialog p{ font:500 14px/30px  'PingFang SC'; margin-bottom: 5px; color:#000; text-align: center;}
+.modal-dialog p.ng-binding{padding-bottom: 10px; border-bottom: 1px solid #e5e5e5; }
+.modal-dialog p a{ display:inline-block; width: 100%; box-sizing:border-box; height:30px; font:500 14px/30px 'PingFang SC'; padding:0 10px; color:#999;}
+.modal-dialog p a:hover{text-decoration: none;}
+
+.cover-main{display: none}
+.cover-b{position: fixed; top: 0; left:0; width: 100%; height: auto; background: #000; opacity: 0.7; z-index: 15}
+.cover-word{position: fixed; top: 10px; right: 10px; width:240px; height: 300px; background: url(../images/word.png) no-repeat; background-size: contain; z-index: 16;}

@@ -1,0 +1,486 @@
+﻿
+
+<!DOCTYPE html>
+<html ng-app="ClassRoomModule"  xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <title>{{headTitle}}ㄧ老师ㄧ大班在线教育</title>
+    <script type="text/javascript" charset="utf-8" src="/classroomassets/javascripts/record.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/classroomassets/actionUrl.js"></script>
+    <link rel="stylesheet" type="text/css" href="/classroomassets/cn/stylesheets/live/reset_min.css">
+    <link rel="stylesheet" type="text/css" href="/classroomassets/cn/stylesheets/live/play.css">
+    <link rel="stylesheet" type="text/css" href="/classroomassets/stylesheets/whiteBoard.css">
+    <link rel="stylesheet" type="text/css" href="/classroomassets/stylesheets/modal.css">
+    <script type="text/javascript" src="/classroomassets/vendor/jQuery/jquery-1.8.3.min.js"></script>
+
+    <script src="/classroomassets/javascripts/live/commons/play_big.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/classroomassets/vendor/jQuery/jquery.simplemodal.js"></script>
+    <script src="/classroomassets/messagesfile/kindeditor-min.js" charset="utf-8"></script>
+    <script src="/classroomassets/messagesfile/plugins/art/artDialog.js?skin=simple" charset="utf-8"></script>
+    <script src="/classroomassets/messagesfile/plugins/art/iframeTools.source.js" charset="utf-8"></script>
+    <script src="/classroomassets/messagesfile/lang/zh_CN.js" charset="utf-8"></script>
+    <script src="/classroomassets/javascripts/erizo.js?v=1" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/cfManager.js?v=1" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/MD5.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/jquery.skygqbox.1.3.js" type="text/javascript" charset="UTF-8"></script>
+
+    <script src="/classroomassets/vendor/AngularJS/1.2.16/angular.min.js" type="text/javascript"></script>
+    <script src="/classroomassets/vendor/AngularJS/1.2.16/angular-cookies-path.min.js" type="text/javascript"></script>
+    <script src="/classroomassets/vendor/AngularJS/1.2.16/angular-route.min.js" type="text/javascript"></script>
+    <script src="/classroomassets/vendor/AngularJS/1.2.16/angular-resource.min.js" type="text/javascript"></script>
+    <script src="/classroomassets/vendor/AngularJS/1.2.16/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="/classroomassets/vendor/AngularJS/1.2.16/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+
+    <script src="/classroomassets/javascripts/live/commons/PublicStatic.js" type="text/javascript"></script>
+    <script src="/classroomassets/javascripts/live/big/Teacher.js" type="text/javascript" charset="UTF-8"></script>
+
+
+    <script src="/classroomassets/javascripts/live/big/appManager.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/Clock.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/commons/liveFactory.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/ClassRoomController.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/ClassroomInfoManager.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/ChatManager.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/WhiteBoardManager.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/LiveManager.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/classroomassets/javascripts/live/big/liveController.js" type="text/javascript" charset="UTF-8"></script>
+
+    <script src="/classroomassets/javascripts/live/commons/delayWindowController.js" type="text/javascript"></script>
+    <script src="/classroomassets/javascripts/live/commons/windowMessageController.js" type="text/javascript"></script>
+    <script src="/classroomassets/javascripts/live/commons/operationMessageController.js" type="text/javascript"></script>
+    <script src="/classroomassets/javascripts/live/commons/errorMessageController.js" type="text/javascript"></script>
+    <script src="/classroomassets/javascripts/live/commons/customFilter.js" type="text/javascript"></script>
+
+</head>
+
+<body onbeforeunload="javascript:distoryRes()">
+<div class="top" ng-controller="ClockController">
+    
+<a ng-show="false" href="https://www.vccore.com" target="_blank" class="fl logo">www.vccore.com</a>
+<h4 class="fl" id="classroom_name">{{courseTitle}}</h4>
+<div class="fr opr">
+    <a ng-show="coursewareObj.showSchedule" class="fl longtime">课件转换中...{{coursewareObj.schedule}} -- 转换错误总数:{{coursewareObj.errorcount}}</a>
+	<div class="fl time">课时：<strong ng-class="{true:'timeout',false:''}[timeObj.delayRemind]">{{classPeriod.hour}}:{{classPeriod.minute}}:{{classPeriod.second}}</strong></div>
+    <!-- <a ng-show="role==1&&delayShow" class="fl longtime" id="delayApply">@view_model.getKeyLanguage("LIVE_COURSE_DELAY")</a> -->
+    <a class="fl quit" id="end_classroom" ng-click="endClassroom()">结束课堂</a>
+</div>
+</div>
+
+<!-- main start -->
+<div class="main" ng-controller="liveController">
+<audio id="chatAudio">
+    <source src="/classroomassets/notifysound/notify.ogg" type="audio/ogg">
+    <source src="/classroomassets/notifysound/notify.mp3" type="audio/mpeg">
+    <source src="/classroomassets/notifysound/notify.wav" type="audio/wav">
+</audio>
+<input type="hidden" value="1089" id="userid" />
+<input type="hidden" value="1139" id="classRoomId" />
+<input type="hidden" value="1" id="role" />
+<input type="hidden" value="abc" id="realname" />
+
+<input type="hidden" value="192.168.106.185" id="liveHost" />
+<input type="hidden" value="443/media" id="videoPort" />
+<input type="hidden" value="enjoyvc.com" id="videoDomain" />
+<input type="hidden" value="1000" id="videoArea" />
+<input type="hidden" value="MC999" id="createMeetingParam" />
+<input type="hidden" value="3" id="meetingControlType" />
+<input type="hidden" value="https://vccamp.vccore.com:8887" id="vcliveHost" />
+<input type="hidden" value="" id="ipsever" />
+
+<input type="hidden" value="{{vm.getStime()}}" id="stime" />
+<input type="hidden" value="{{vm.getEtime()}}" id="etime" />
+<input type="hidden" value="{{vm.getSertime()}}" id="sertime" />
+<input type="hidden" value="{{vm.getNowtime()}}" id="nowtime" />
+
+<input type="hidden" value="10" id="quota" />
+
+<!-- 调色板 定位 start -->
+<input type="hidden" value="380" id="color_coordinate" />
+<!-- 调色板 定位 end -->
+<!-- left start -->
+<div class="left fl">
+    <div class="left-main">
+        <a href="javascript:void(0)" class="handle handle-a"></a>
+        <div class="left-cont clearfix">
+            <div class="menu">
+                <div class="menu-a">
+                    <h5 ng-show="vm.isTeachingMode()" class="fl">主持模式(仅允许主持人发言)</h5>
+                    <h5 ng-show="!vm.isTeachingMode()" class="fl">讨论模式(所有人可自由发言)</h5>
+                    <a ng-click="vm.showClassroomModeView()" href="javascript:void(0)" class="fr change-mode">切换模式</a>
+                </div>
+                <div ng-show="vm.getIsShowChangeClassroomModeView()&&vm.isTeachingMode()" class="pop">
+                    <h5 class="fl a">讨论模式(所有人可自由发言)</h5>
+                    <a ng-click="vm.changeClassroomMode()" href="javascript:void(0)" class="fr sec">选择</a>
+                </div>
+                <div ng-show="vm.getIsShowChangeClassroomModeView()&&!vm.isTeachingMode()" class="pop">
+                    <h5 class="fl">主持模式(仅允许主持人发言)</h5>
+                    <a ng-click="vm.changeClassroomMode()" href="javascript:void(0)" class="fr sec">选择</a>
+                </div>
+            </div>
+            <div class="space10"></div>
+            <div class="left-cont clearfix">
+                <div class="left-sub">
+                    <div class="name relative"><strong class="sa">隐藏操作</strong><em></em></div>
+                    <div class="clearfix tea-h-s">
+                        <div class="space10"></div>
+                        <dl class="tea-list-a clearfix">
+                            <!-- 视频1start -->
+                            <dd class="clearfix">
+                                <div class="top-a clearfix">
+                                    <i ng-class="{'statu':vm.getTeacherOnline()==0,'o status':vm.getTeacherOnline()==1}"></i><!-- 在线状态 -->
+                                    <em class="cam-a">1</em>
+                                    <a ng-show="vm.isConnectFirstVideo()" ng-click="vm.firstVideoOnAndOff()" class="switch" ng-class="{true:'',false:'switch-off'}[vm.getOpenFirstVideoStatus()]" href="javascript:void(0)"></a>
+                                    <i ng-show="!vm.isConnectFirstVideo()">（未连接）</i>
+                                </div>
+                                <div ng-click="vm.teacherInfo.changeVideo('t_1')" id="divVideoLocal_a" class="video" ng-class="{true:'cur',false:''}[vm.getTeacherCurrentVideo()=='t_1']"></div>
+                            </dd>
+                            <!-- 视频1end -->
+                            <!-- 视频2start -->
+                            <dd class="clearfix">
+                                <div class="top-a clearfix">
+                                    <em class="cam-a">2</em>
+                                    <a ng-show="vm.isConnectSecondVideo()" ng-click="vm.secondVideoOnAndOff()" class="switch" ng-class="{true:'',false:'switch-off'}[vm.getOpenSecondVideoStatus()]" href="javascript:void(0)"></a>
+                                    <i ng-show="!vm.isConnectSecondVideo()">（未连接）</i>
+                                </div>
+                                <div ng-click="vm.teacherInfo.changeVideo('t_2')" id="divVideoLocal_b" class="video" ng-class="{true:'cur',false:''}[vm.getTeacherCurrentVideo()=='t_2']"></div>
+                            </dd>
+                            <!-- 视频2end -->
+                            <!-- 屏幕共享start -->
+                            <dd style="display: none;" class="clearfix">
+                                <div id="shareVideo" class="video">
+                                </div>
+                            </dd>
+                            <!-- 屏幕共享end -->
+                        </dl>
+                        <div class="l-tools-a clearfix">
+                            <i class="fl mic" ng-class="{true:'mic-on',false:''}[vm.isOpenAudio()]"></i><!-- mic-on -->
+                            <a ng-show="vm.isConnectAudio()" ng-click="vm.audioOnAndOff()" class="switch" ng-class="{true:'',false:'switch-off'}[vm.isOpenAudio()]" href="javascript:void(0)"></a><!-- switch-no、switch-off -->
+                            <a ng-show="!vm.isConnectAudio()" class="switch switch-no" href="javascript:void(0)"></a>
+                            <i ng-click="vm.openPrivateMessage()" class="fr msg hand" ng-class="{true:'',false:'msg-no'}[!vm.isEmptyForPrivateMessage()]">{{vm.getPrivateMessageLength() | privatemsgcount}}</i><!--msg-no-->
+                        </div>
+                        <div class="space10"></div>
+                        <ul class="chat-tools clearfix">
+                            <li><a ng-click="vm.openOrCloseWhiteboard()" id="whiteboard" href="javascript:void(0)" class="whb" ng-class="{true:'whb-on',false:''}[vm.isOpenWhiteboard()]"></a></li><!-- 白板 -->
+                            <li><a ng-href="{{vm.uploadDocument()}}" target="_blank" class="doc"></a></li>
+                            <li><a ng-click="vm.openOrCloseApp()" href="javascript:void(0)" class="app app-no"></a></li>
+                            <li><a ng-click="vm.shareScreenOnAndOff()" href="javascript:void(0)" class="scr" ng-class="{true:'scr-on',false:''}[vm.getTeacherShareVideo()]"></a></li><!-- 共享屏幕 -->
+                        </ul>
+                        <div class="stu-opr clearfix">
+                            <div class="name relative"><strong>学生权限操作</strong></div>
+                            <dl class="stu-opt fl clearfix">
+                                <dd>
+                                    <strong>成员摄像头</strong>
+                                    <a ng-click="vm.controlAllVideo()" class="switch" ng-class="{true:'switch-on',false:'switch-off'}[vm.controlAllVideoIsOpen()]" href="javascript:void(0)"></a>
+                                </dd>
+                                <dd><strong>讨论区发言</strong><a ng-click="vm.controlChat()" class="switch" ng-class="{true:'switch-on',false:'switch-off'}[vm.getControlAllStudentChatStatus()]" href="javascript:void(0)"></a></dd>
+                            </dl>
+                            <div class="fr hand-up clearfix">
+                                <a href="javascript:void(0)" ng-click="vm.allowHandupOpen()" class="handup fl" ng-class="{true:'',false:'handup-no'}[vm.getAllowHandup()]"></a><!-- 允许举手 -->
+                                <a href="javascript:void(0)" ng-click="vm.handupListOpenAndClose()" class="msg-btn fl" ng-class="{true:'',false:'msg-btn-no'}[!vm.isEmptyForHandupList()]"></a><!-- 是否有学生举手 -->
+                            </div>
+                            <!-- 举手列表 start -->
+                            <div ng-show="vm.getHandupListViewShow()" class="handup-list">
+                                <div class="title">
+                                    <span class="title-l fl">举手列表
+                                        <!--<em ng-show="vm.teacherInfo.handupList.length>0">（@view_model.getKeyLanguage("LIVE_BIG_HANDUP_LIST_SHENGYU")<i>{{vm.classroomInfo.HANDUPTIME}}</i>@view_model.getKeyLanguage("LIVE_BIG_HANDUP_LIST_MIAO")）</em>-->
+                                    </span>
+                                    <span class="close fr hand" ng-click="vm.closeHandupList()"></span>
+                                </div>
+                                <div ng-show="!vm.isEmptyForHandupList()" class="handup-list-cont">
+                                    <p><i>{{vm.getHandupListLength()}}</i>名学生已举手，请选择一位学生发问。</p>
+                                    <ul class="clearfix">
+                                        <li ng-repeat="handupobj in vm.getHandupList()">
+                                            <strong>{{handupobj.username | limitTo:5}}</strong>
+                                            <i class="fl c" ng-class="{'':handupobj.stopvideo==0,'c-no':handupobj.stopvideo==1,'c-on':handupobj.stopvideo==2}"></i><!-- 视频状态 -->
+                                            <i class="fl m" ng-class="{'':handupobj.stopspeak==0,'m-no':handupobj.stopspeak==1,'m-on':handupobj.stopspeak==2}"></i><!-- 音频状态 -->
+                                            <i class="fl mic" ng-class="{true:'mic-on',false:''}[handupobj.stopspeak==2]"></i><!-- mic-on -->
+                                            <a href="javascript:void(0)" ng-click="vm.teacherInfo.selectHandupStudent(handupobj)" class="sbtn">选择</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div ng-show="vm.isEmptyForHandupList()" class="handup-list-cont">
+                                    <p class="tc" ng-bind-html="HANGUP_LIST_NO_STUDENT_DESC"></p>
+                                </div>
+                                <a href="javascript:void(0)" ng-click="vm.teacherInfo.endHandupList()" class="endbtn">结束本次发问</a>
+                            </div>
+                            <!-- 举手列表 end -->
+                        </div>
+                    </div>
+                    <div class="cls"></div>
+                    <!-- 老师选择举手学生 start -->
+                    <dl ng-show="false">
+                        <a id="handupVideo" uid="{{vm.getHandupSelectStudent().userid}}"></a>
+                    </dl>
+                    <!-- 老师选择举手学生 end -->
+                    <div class="serbar">
+                        <p class="fl serbar-l">
+                            <a ng-click="vm.addStudent()" href="javascript:void(0)" class="fl add-stu"></a>
+                            在线成员<em>{{vm.getMembersLength()}}/{{vm.getQuota()}}</em>人
+                        </p>
+                        <div class="fr serbar-r">
+                            <div class="ser-bg">
+                                <input ng-model="vm.classroomInfo.searchKey" type="text" class="txt fl">
+                                <input ng-click="vm.teacherInfo.selectStudent()" type="button" class="btn fl hand"/>
+                            </div>
+                            <em></em>
+                        </div>
+                    </div>
+                    <!-- 学生列表 start -->
+                    <dl ng-show="vm.getIsShowScrollView()" class="student-list clearfix">
+                        <dd ng-if="item.roleid==2&&item.userid!=vm.getUserid()" ng-repeat="item in vm.getMembers()" ng-class="{'on':vm.getTeacherCurrentVideo()=={{item.userid}},'msg':item.handspeak==1}">
+                            <a ng-click="vm.teacherInfo.changeVideo(item.userid)" ng-class="{'on':vm.getTeacherCurrentVideo()=={{item.userid}},'msg':item.handspeak==1}" id="{{item.userid}}" ng-style="vm.showOtherUserAvatar(item.avatar)" href="javascript:void(0)"></a>
+                            <p>
+                                <span class="fl" title="{{item.username}}">{{item.username}}</span>
+                                <strong class="fl">
+                                    <i title="{{vm.audioStatusTitle(item.stopspeak)}}" ng-click="vm.controlSingleStudentAudioOpenOrBan(item)" ng-class="{'m':item.stopspeak==0,'m-no':item.stopspeak==1,'m-on':item.stopspeak==2}"></i><!-- 音频 -->
+                                    <i title="{{vm.videoStatusTitle(item.stopvideo)}}" ng-click="vm.controlSingleStudentVideoOpenOrBan(item)" ng-class="{'c':item.stopvideo==0,'c-no':item.stopvideo==1,'c-on':item.stopvideo==2}"></i><!-- 视频 -->
+                                    <i title="{{vm.chatStatusTitle(item.stopchat)}}" ng-click="vm.setChatStatueByUser(item)" ng-class="{'s-on':item.stopchat==0,'s-no':item.stopchat==1}"></i><!-- 聊天 -->
+                                    <i ng-click="vm.openPrivateMessageWindowToUser(item)" class="d-on"></i><!-- 私信 -->
+                                </strong>
+                            </p>
+                        </dd>
+                    </dl><!-- 走马灯 -->
+                    <dl ng-show="!vm.getIsShowScrollView()" class="student-list clearfix">
+                        <dd ng-if="item.roleid==2&&item.userid!=vm.getUserid()" ng-repeat="item in vm.getSearchMembers()" ng-class="{'on':vm.getTeacherCurrentVideo()=={{item.userid}},'msg':item.handspeak==1}">
+                            <a ng-click="vm.teacherInfo.changeVideoBySearch(item.userid)" ng-class="{'on':vm.getTeacherCurrentVideo()=={{item.userid}},'msg':item.handspeak==1}" id="search_{{item.userid}}" ng-style="vm.showOtherUserAvatar(item.avatar)" href="javascript:void(0)"></a>
+                            <p>
+                                <span class="fl" title="{{item.username}}">{{item.username}}</span>
+                                <strong class="fl">
+                                    <i title="{{vm.audioStatusTitle(item.stopspeak)}}" ng-click="vm.controlSingleStudentAudioOpenOrBan(item)" ng-class="{'m':item.stopspeak==0,'m-no':item.stopspeak==1,'m-on':item.stopspeak==2}"></i><!-- 音频 -->
+                                    <i title="{{vm.videoStatusTitle(item.stopvideo)}}" ng-click="vm.controlSingleStudentVideoOpenOrBan(item)" ng-class="{'c':item.stopvideo==0,'c-no':item.stopvideo==1,'c-on':item.stopvideo==2}"></i><!-- 视频 -->
+                                    <i title="{{vm.chatStatusTitle(item.stopchat)}}" ng-click="vm.setChatStatueByUser(item)" ng-class="{'s-on':item.stopchat==0,'s-no':item.stopchat==1}"></i><!-- 聊天 -->
+                                    <i ng-click="vm.openPrivateMessageWindowToUser(item)" class="d-on"></i><!-- 私信 -->
+                                </strong>
+                            </p>
+                        </dd>
+                    </dl><!-- 搜索列表 -->
+                    <!-- 学生列表 end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- left end -->
+<!-- center start -->
+<div id="center" class="center clearfix">
+    <!-- 主屏幕视频start -->
+    <div ng-show="!vm.getIsOpenWhiteboard()" id="divVideoRemote" class="center-main center-main-b">
+        <video autoplay id="teacher_a"></video>
+    </div>
+    <!-- 主屏幕视频end -->
+    <!-- 主屏幕白板start -->
+    <div ng-show="vm.getIsOpenWhiteboard()" id="v-box-canvas" class="center-main center-main-b" style="background-color: #fff;">
+        <canvas id="back-canvas" class="canvas" ></canvas>
+        <canvas id="top-canvus" class="canvas" ></canvas>
+        <canvas id="show-drawing-canvus" class="canvas" ></canvas>
+        <canvas id="drawing-canvus" class="canvas" ></canvas>
+    </div>
+    <!-- 主屏幕白板end -->
+    <!-- 音频 start -->
+    <audio id="audioRemote" autoplay="autoplay"></audio>
+    <div id="divAudio" style="display: none;"></div>
+    <!-- 音频 end -->
+    <!-- 工具条 start -->
+    <div ng-show="vm.getIsOpenTools()" class="toolbar fl">
+        <dl class="fl clearfix toolbar-cont">
+            <!-- 调色板start -->
+            <dd>
+                <a id="curcolor" ng-click="vm.colorBoardOpenAndClose()" href="javascript:void(0)" class="a tools" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(8)]">
+                    <canvas id="drawing-current-color" width="22" height="21"></canvas>
+                </a>
+                <div ng-show="vm.showColorBoard()" id="color-select" class="color-select pop">
+                    <canvas id="drawing-color" width="302" height="32"></canvas>
+                </div>
+            </dd>
+            <!-- 调色板end -->
+            <!-- 线条选择start -->
+            <dd>
+                <a href="javascript:void(0)" ng-click="vm.lineTypeOpenAndClose()" class="b tools" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(7)]"></a>
+                <div ng-show="vm.showLineType()" class="line-box pop">
+                    <ul id="changeLine" class="clearfix">
+                        <li title="3"><i class="a"></i></li>
+                        <!--<li><i class="b"></i></li>-->
+                        <li title="7"><i class="c"></i></li>
+                        <li title="20"><i class="d"></i></li>
+                    </ul>
+                </div>
+            </dd>
+            <!-- 线条选择end -->
+            <!-- 画笔start -->
+            <dd>
+                <a id="pen" href="javascript:void(0)" class="c" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(0)]"></a>
+            </dd>
+            <!-- 画笔end -->
+            <!-- 直线start -->
+            <dd>
+                <a id="straightline" href="javascript:void(0)" class="d tools" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(4)]"></a>
+            </dd>
+            <!-- 直线end -->
+            <!-- 方start -->
+            <dd>
+                <a id="party" href="javascript:void(0)" class="e" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(3)]"></a>
+            </dd>
+            <!-- 方end -->
+            <!-- 圆start -->
+            <dd>
+                <a id="circle" href="javascript:void(0)" class="f" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(2)]"></a>
+            </dd>
+            <!-- 圆end -->
+            <!-- 字体输入start -->
+            <dd>
+                <a id="font" href="javascript:void(0)" class="g tools" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(6)]"></a>
+                <div ng-show="vm.showTextWindow()" id="word" class="word-box pop">
+                    <p>输入字体</p>
+                    <input id="txtText" placeholder="输入字体" type="text"/>
+                    <em class="close" ng-click="vm.textWindowClose()"></em>
+                </div>
+            </dd>
+            <!-- 字体输入end -->
+            <!-- 橡皮擦start -->
+            <dd>
+                <a id="eraser" href="javascript:void(0)" class="h" ng-class="{true:'on',false:''}[vm.currentToolTypeIsEqualByType(1)]"></a>
+            </dd>
+            <!-- 橡皮擦end -->
+            <!-- 清屏start -->
+            <dd>
+                <a id="clean" href="javascript:void(0)" class="i"></a>
+            </dd>
+            <!-- 清屏end -->
+        </dl>
+        <!-- 白板分页start -->
+        <div id="pageid" ng-show="vm.isShowPageOperation()" class="page fl">
+            <a id="first" ng-show="vm.isShowFirstAndPreviousPage()" href="#">首页</a>
+            <a id="prev" ng-show="vm.isShowFirstAndPreviousPage()" href="#">上一页</a>
+            <span id="currPage"><em>{{vm.getCurrentPage()}}</em>/{{vm.getTotalPage()}}</span>
+            <a id="next" ng-show="vm.isShowLastAndNextPage()" href="#">下一页</a>
+            <a id="last" ng-show="vm.isShowLastAndNextPage()" href="#">尾页</a>
+            <a href="#" ng-show="false" class="a">[加页]</a><!-- 暂时不需要 -->
+        </div>
+        <!-- 白板分页end -->
+        <!-- 老师控制学生共享白板开关start -->
+        <div class="fl avib-white">
+            <em>学生使用白板</em>
+            <a ng-click="vm.shareWhiteboardOpenAndClose()" class="switch" ng-class="{true:'',false:'switch-off'}[vm.isOpenShareWhiteboard()]" href="javascript:void(0)"></a>
+        </div>
+        <!-- 老师控制学生共享白板开关end -->
+    </div>
+    <!-- 工具条 end -->
+    <div class="quick-opr">
+        <a ng-show="vm.getIsOpenWhiteboard()" href="javascript:void(0)" class="a" ng-class="{true:'',false:'aon'}[vm.getIsOpenShareWhiteboard()]"></a>
+        <a ng-show="false" href="javascript:void(0)" class="b bon"></a>
+        <a ng-show="vm.getTeacherShareVideo()" href="javascript:void(0)" class="c" ng-class="{true:'',false:'con'}[vm.getTeacherShareVideo()]"></a>
+    </div>
+</div>
+<!-- center end -->
+<!-- right start -->
+<div class="m-right clearfix">
+    <a href="javascript:void(0)" ng-click="vm.openOrCloseChatView()" title="聊天" class="msg-ico" ng-class="{true:' msg-ico-on',false:''}[vm.messageCountIsNotEmpty()]">{{vm.getMessageCount() | msgcount:vm.getShowChatView()}}</a>
+    <div class="clearfix relative">
+        <a ng-show="vm.getCurrentResolution()==80" ng-click="vm.openAndCloseResolutionView()" href="javascript:void(0)" title="设置" class="video-ico">高清</a>
+        <a ng-show="vm.getCurrentResolution()==40" ng-click="vm.openAndCloseResolutionView()" href="javascript:void(0)" title="设置" class="video-ico">标清</a>
+        <a ng-show="vm.getCurrentResolution()==20" ng-click="vm.openAndCloseResolutionView()" href="javascript:void(0)" title="设置" class="video-ico">普清</a>
+        <div ng-show="vm.getShowResolutionSelectViewStatus()" class="handup-list m-video">
+            <div class="title">
+                <span class="title-l fl">设置</span>
+                <span ng-click="vm.openAndCloseResolutionView()" class="close fr hand"></span>
+            </div>
+            <div class="main-video">
+                <span class="fl">画质:</span>
+                <ul class="clearfix fl">
+                    <li><a ng-click="vm.selectResolution(20)" ng-class="{true:'on',false:''}[vm.isCurrentResolutionByValue(20)]" href="javascript:void(0)" title="普清" />普清</a></li>
+                    <li><a ng-click="vm.selectResolution(40)" ng-class="{true:'on',false:''}[vm.isCurrentResolutionByValue(40)]" href="javascript:void(0)" title="标清" />标清</a></li>
+                    <li><a ng-click="vm.selectResolution(80)" ng-class="{true:'on',false:''}[vm.isCurrentResolutionByValue(80)]" href="javascript:void(0)" title="高清" />高清</a></li>
+                </ul>
+                <div class="space10"></div>
+                <a ng-click="vm.commitVideoResolution()" href="javascript:void(0)" class="clearfix endbtn"></a>
+            </div>
+        </div>
+    </div>
+    <a ng-show=true ng-click="vm.teacherInfo.setGuestInMain()" href="javascript:void(0)" title="设置" class="video-ico">嘉宾</a>
+        <div>
+    <a  href="javascript:void(0)" title="录屏" class="prv-ico" id="showRecordButton" onclick="rec.setRecordParam()"></a>		<!--录屏-->
+    <!-- <a onclick="startapp()" href="javascript:void(0)" title="录屏" class="prv-ico prv-ico-on "></a>		 -->
+<embed id="vcnativecmd" type="application/x-ppapi-vcnativecmd" width=0 height=0>
+        </div>
+
+</div>
+<!-- 小窗口 聊天 start -->
+<div ng-show="vm.getShowChatView()" ng-class="{true:'msg-box',false:'msg-box-a'}[vm.messageWindowIsMax()]" id="msg-box">
+    <div class="title">
+        <span class="title-l fl">讨论区</span>
+        <span ng-click="vm.closeChatView()" class="close fr hand"></span>
+        <span ng-show="!vm.messageWindowIsMax()" ng-click="vm.maxMessageWindow()" class="title-r fr">最大化</span>
+        <span ng-show="vm.messageWindowIsMax()" ng-click="vm.minMessageWindow()" class="title-r fr">还原</span>
+    </div>
+    <div class="cont" id="cont">
+        <div id="talkmain" class="chat-box">
+            <div id="messages"></div>
+        </div>
+    </div>
+    <div class="chat">
+        <div id="emotionsContent"  style="width:253px; border:1px solid #5690D2;" class="ke-plugin-emoticons"></div>
+        <p class="emo">
+            <a href="#" id="emotions"></a>
+            <a ng-show="false" href="#" class="font"></a>
+            <b class="clearup fr" id="clearMessage" ng-click="vm.clearMessage()">清屏</b>
+            <b class="fr push-btn"></b>
+        </p>
+        <div class="cont-a relative">
+            <textarea name="talk" id="talk" ><span style="color:#666" >点击这里开始聊天</span></textarea>
+            <input type="button" class="sent" ng-click="vm.sendPublicMessage($event)" id="sentMessage" value="发送" >
+            <input id="pruser" type='hidden'  value="">
+        </div>
+    </div>
+    <div class="push-link relative hidden">
+    	<div class="link-m">图片链接：<input type="text" id="imglink"/></div>  
+    	<div class="link-m">商品链接：<input type="text"/ id="prodlink"></div> 
+    	 <input type="button" class="sent" ng-click="vm.sendAdMessage()" id="sentAdMessage" value="推荐" >
+    </div>
+</div>
+<!-- 小窗口 聊天 end -->
+<!-- right end -->
+</div>
+<!-- main end -->
+
+<!--录屏-->
+<div class="pop-employ none" id="recordOptions">
+	<div class="title">
+		<div class="nav nav-bar fl">
+			<span class="on">录屏参数</span>
+		</div>
+		<span class="close fr hand" onclick="rec.hideRecord()"></span>
+	</div>
+	<div class="prv-con">
+		<div class="prv-box on">
+			<div class="choose">
+				<span class="on" id="recScreen">录全屏</span>
+				<span id="recWindow">录窗口</span>
+				<span id="recAudio">录音频</span>
+			</div>
+			</div>
+			<p class="tc"><a class="btn-save" onclick="rec.start()">确定</a></p>
+		</div>
+		<div class="prv-box">
+			<div class="file-con file-con-b">
+				<h2>选择保存位置</h2>
+				<p class="pr"><label class="lab">反光板各向异性1-3.wmv<input type="file"  class="fileclass"/></label></p>
+			</div>
+			<p class="tc"><a class="btn-save">确定</a></p>
+
+		</div>
+	</div>
+</div>
+
+<!--录音状态 <label class="time">01：20：09</label> -->
+<div class="pop-reding none" id="recordStatus">
+	<div class="sta"><i class="fl icon-b" onclick="rec.stop()"></i><span class="inner fl"><label  class="lab">录制中</label></span><span class="close fr hand" onclick="rec.hideStatus()"></span></div>
+</div>
+<div id="adBox">
+    <a onclick="openAD()" href="javascript:;">
+    <img id="adImage" width="100%" height="100%"/>
+    </a>
+</div>
+</body>
+</html>
+

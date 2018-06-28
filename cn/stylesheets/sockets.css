@@ -1,0 +1,52 @@
+#draw
+        {
+        	height: 500px; 
+        	width: 700px; 
+        	border: 1px solid black;
+        }
+        
+        #messageArea
+        {
+            width: 300px; 
+            margin-left: 20px; 
+            height: 500px; 
+            border: 1px solid gray;
+            float: left;
+        }
+        
+        #conversation
+        {
+        	height:25px;
+        	padding:5px 0px 0px 5px;
+        	background-color:#D7F0CE;
+        	color:#1E8F11;
+        	font-weight:bold"
+        }
+        
+        #messageBoard
+        {
+        	overflow-y: scroll;
+        	height:385px;
+        	padding:0px 0px 0px 5px;
+        }
+        
+        #messageBox
+        {
+        	height: 80px; 
+        	width: 295px; 
+        	border: 1px solid gray;
+        }
+        
+        #info
+        {
+        	margin-left: 200px;
+        	font-style:italic;
+        }
+        
+        .canvas{position:absolute}
+        .canvas,#canvas:active{cursor:crosshair;}
+.divText{ position:absolute; top:650px; left:150px; width:300px; font-size:12px;}
+.box{ border:1px #999999 solid; background:#FFF;}
+.tit{ font-size:14px; padding:0; margin:0; height:31px; line-height:31px; background: center top repeat-x #CBE4EF;}
+.tit b{ float:left; margin-left:15px;}
+.tit a{ float:right; margin-right:5px; margin-top:6px; display:inline;}

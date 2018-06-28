@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>私聊窗口</title>
+<script src="./plugins/art/artDialog.js?skin=simple"></script>
+<script src="./plugins/art/iframeTools.source.js"></script>
+<script src="../javascripts/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../cn/stylesheets/reset_min.css">
+<link rel="stylesheet" type="text/css" href="../cn/stylesheets/online_edu.css">
+
+<link rel="stylesheet" href="./themes/default/default.css" />
+<script charset="utf-8" src="./kindeditor-min.js"></script>
+<script charset="utf-8" src="./lang/zh_CN.js"></script>
+<script src="./messagepr.js"></script>
+</head>
+<body >
+	<div class="chat-pop">
+		<div class="title">
+			<img id="avatarImage" src="../cn/images/getAvatar.jpg" style="width: 27px;height: 27px;" class="fl">
+			<p class="fl">
+				<span id="showusername"></span><em id="privatetalktype"></em>
+			</p>
+
+		</div>
+		<div class="chat-pop-main">
+			<div id="contpr" class="cont">
+				<div id="messages"></div>
+			<!-- 
+			<p>[19:30]王芍说：老师，星期5晚上可预约上课吗？课程内容可以改一下吗？</p>
+		    -->
+		    
+			</div>
+			<div id="emotionsContent"
+				style="width: 253px; border: 1px solid #5690D2;"
+				class="ke-plugin-emoticons"></div>
+			<div class="chat-a">
+				<p class="emo">
+					<a href="#" id="emotions"></a>
+				</p>
+				<div class="cont-a relative">
+					<textarea name="messageprtalk" id="messageprtalk"></textarea>
+					<input id="messageprtalk_sub" type="button" class="sent">
+                    <input id="prtalkuser" type='hidden' value="">
+                    <input id="prtalkusername" type='hidden' value="">
+                    <input id="prtalkwinname" type='hidden' value="">
+                    <input id="avatar" type='hidden' value="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+
+	    parent.setPrtalkWinHashMap(art.dialog.data('prtalkuser'), art.dialog.getwinName());
+
+        if(art.dialog.data('privatetalktype')){
+            document.getElementById('privatetalktype').innerHTML = art.dialog.data('privatetalktype');
+        }
+
+		if (art.dialog.data('prtalkuser')) {
+			document.getElementById('prtalkuser').value = art.dialog
+					.data('prtalkuser');
+		};
+
+		if (art.dialog.data('prtalkusername')) {
+			document.getElementById('prtalkusername').value = art.dialog.data('prtalkusername');
+			
+		};
+
+        if (art.dialog.data('avatar')) {
+            document.getElementById('avatar').value = art.dialog.data('avatar');
+            if(art.dialog.data('avatar') != 'undefined' && art.dialog.data('avatar') != null && art.dialog.data('avatar')!== '')
+                document.getElementById('avatarImage').src = art.dialog.data('avatar');
+        };
+		
+		if (art.dialog.data('message')) {
+	
+		 var para=document.createElement("div");
+		 para.innerHTML = art.dialog.data('message');      
+	     document.getElementById('messages').appendChild(para); 
+	     art.dialog.removeData('message');
+		}; 
+
+		$("#showusername").append(art.dialog.data('prtalkusername')); 
+		
+		document.getElementById('messageprtalk_sub').onclick = function() {
+		document.getElementById('prtalkwinname').value = art.dialog.getwinName();
+			editor.sync();
+
+			var origin = artDialog.open.origin; 
+			var aValue = $("#messageprtalk").val();
+			var user = $("#prtalkuser").val(); 
+			var username = $("#prtalkusername").val();
+			var avatar = $("#avatar").val();
+			parent.sendMessageprtalk(aValue, user,avatar);
+
+			editor.html('');
+			
+		};
+		
+		var hide = function() {
+			api = art.dialog.open.api;
+			api.hide();
+		}
+		
+	    var show = function() {
+			api = art.dialog.open.api;
+			api.show();		
+			api.size(350, 300);			
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+/* CSS Document */
+body{ background:#282828;}
+::-webkit-scrollbar{width: 12px;}
+::-webkit-scrollbar-track-piece{background-color:#4c4c4c; -webkit-border-radius: 6px;}
+::-webkit-scrollbar-thumb:vertical{height: 5px; background-color: #818181; -webkit-border-radius: 6px;}
+::-webkit-scrollbar-thumb:horizontal{width: 5px; background-color: #818181; -webkit-border-radius: 6px;}
+.top .logo{ width:110px; height:30px; padding-left:75px; margin:0 10px 0 20px; font:500 12px/30px "Microsoft YaHei"; color:#26997d; background:url(../../images/top.png) no-repeat 0 -208px;}
+.top .logo:hover{ text-decoration:none;}
+.top h4{ font:500 12px/30px SimSun; color:#595959;}
+.top .opr{ margin-right:20px;}
+.top .opr .time{ padding-left:20px; margin-right:20px; font:500 12px/30px SimSun; color:#338174; background:url(../../images/top.png) no-repeat -1px 6px;}
+.top .opr .timeout{ color:#f00; font-weight:700; margin-right:15px;animation:txtColor 1s infinite;-moz-animation:txtColor 1s infinite; -webkit-animation:txtColor 1s infinite; -o-animation:txtColor 1s infinite;}
+.top .opr .quit{ cursor:pointer; display:block; padding-right:25px;  font:500 12px/30px SimSun; color:#939393; background:url(../../images/top.png) no-repeat 55px -58px;}
+.top .opr .longtime{ cursor:pointer; margin-right:15px; font:700 12px/30px SimSun; color:#f60;}
+
+.left-main .menu a em, .left-sub .name em, .handle, .handle-on, .left-sub .tea-list dd em, .chat-tools a, .chat-tools-a a, .left-sub .student-list dd p em, .hand-up .handup, .right .name em{ background:url(../../images/left.png) no-repeat;}
+.top{ height:30px; background:url(../../images/top.png) repeat-x 0 -146px;}
+.left{position:absolute; left:0; top:30px; width:320px; background:#3a3a3a; border-right:14px solid #1f1f1f;}
+.left-main{ position:relative; width:100%; height:100%;}
+.left-main .handle{ position:absolute; right:-14px; top:150px; width:14px; height:54px; background-position:-2px -283px;}
+.left-main .handle-on{ background-position:-2px -198px;}
+.left-main .menu{ position:relative; height:36px; background:url(../../images/title_b.jpg) repeat-x;}
+.left-main .menu .pop{ position:absolute; left:0; top:36px; z-index:100; width:320px; height:36px; background:#000;}
+.left-main .menu h5{ padding:0 0 0 45px; font:500 12px/36px SimSun; color:#fff; background:url(../../images/left.png) no-repeat 15px 7px}
+.left-main .menu h5.a{ background-position:15px -47px;}
+.left-main .menu .change-mode{ display:block; padding:0 30px 0 0; font:500 12px/36px SimSun; color:#fff; background:url(../../images/left.png) no-repeat 50px -853px}
+.left-main .menu .change-mode:hover{ text-decoration:none; color:#f60;}
+.left-main .menu .sec{ display:block; margin:8px 10px 8px 0; padding:0 7px; font:500 12px/20px SimSun; text-align:center; color:#999; background:#303030; border:1px solid #666; border-radius:7px;}
+.left-main .menu .sec:hover{text-decoration:none; color:#fff; background:#555}
+.left-sub .name{ height:20px; padding:0 5px; font:500 12px/20px SimSun; color:#666; background:url(../../images/line.png) repeat-x 0 4px;}
+.left-sub .name-a{ height:24px; background:none}
+.left-sub .name strong{ display:inline-block; margin:0 5px; padding:0 5px; font:500 12px/20px SimSun; color:#666; background:#3a3a3a}
+.left-sub .name-a strong{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 137px;font-size:14px; font-weight:700; margin:0; padding:0; color:#fff;}
+.left-sub .name-a .pl{padding-left:10px;}
+.left-sub .name i{ cursor:pointer; float:left; width:18px; height:20px; margin-right:5px; background:url(../../images/left_a.png) no-repeat -9px -729px;}
+.left-sub .name i.o{ background-position:-9px -762px;}
+.left-sub .name i.b{ background-position: -11px -687px}
+.left-sub .top-a .statu{ cursor:pointer; float:left; width:18px; height:20px; margin-right:5px; background:url(../../images/left_a.png) no-repeat -9px -731px;}
+.left-sub .top-a i.o{ background-position:-9px -764px;}
+.left-sub .top-a i.b{ background-position: -11px -689px}
+.left-sub .name .msg{width:29px; height:24px; margin:0 3px; background:url(../../images/left_a.png) no-repeat  -11px -641px;}
+.left-sub .name .msg-in{background-position:-83px -641px}
+.left-sub .name em{ cursor:pointer; float:right; width:24px; height:20px; padding:0 5px; background:#3a3a3a url(../../images/left.png) no-repeat 5px -103px}
+.left-sub .name em.on{background-position:5px -141px}
+.left-sub .tea-list{ width:130px; padding-bottom:5px; margin:0 auto;}
+.left-sub .tea-list dd{ position:relative; width:86px; height:64px; margin:0 auto 10px;}
+.left-sub .tea-list dd a{ display:block; width:82px; height:60px; border:2px solid #000;}
+.left-sub .tea-list dd em{ display:block; position:absolute; left:2px; bottom:2px; width:21px; height:21px; background-position: -1px -794px}
+.left-sub .tea-list dd.on a{ border-color:#1eaaa5;}
+.left-sub .tea-list dd img{ max-height:60px; max-width:82px;}
+.left-sub h3.t{padding:5px 10px 0 20px; font:700 14px/30px SimSun; color:#fff;}
+.left-sub p.mc{padding:0 20px;}
+.left-sub p.mc i{margin-right:5px; font:500 12px/20px SimSun; color:#fff;}
+.left-sub p.mc .switch{ margin:3px 0 0}
+
+.tea-list-a{ width:300px; padding:0 10px 10px;}
+.tea-list-a dd{ float:left; width:142px; margin:0 4px;}
+.tea-list-a dd .video{ cursor:pointer; width:140px; height:104px; border:1px solid #000; background:url(../../images/nocarm_a.jpg) no-repeat;}
+.tea-list-a dd .video-off{background:url(../../images/nocarm_a_off.jpg) no-repeat;}
+.tea-list-a dd .video-no{background:url(../../images/nocarm_a_no.jpg) no-repeat;}
+.tea-list-a dd .cur{ border-color:#1cb3ae}
+.tea-list-a .top-a{ margin:0 0 5px;}
+.tea-list-a .top-a .cam-a{ float:left; display:block; padding-left:15px; margin-right:3px; height:18px; font:700 12px/18px SimSun; color:#fff; background:url(../../images/left_a.png) no-repeat -15px -546px;}
+.tea-list-a .top-a .switch{ margin:0}
+.tea-list-a .top-a i{ font:500 12px/18px SimSun; color:#666}
+.l-tools-a{ width:300px; height:24px; padding:0 10px;}
+.l-tools-b{ height:auto; margin:5px 0 0;}
+.l-tools-b em{ margin:0 0 0 15px; font:500 12px/32px SimSun; color:#fff;}
+.l-tools-b em i{color:#23b9b4;}
+.l-tools-b .handon{width:98px; height:32px; background:url(../../images/left_a.png) no-repeat -7px -587px;}
+.l-tools-b .handon-on{background:url(../../images/left_a.png) no-repeat -138px -587px;}
+.l-tools-b .handon-ing{background:url(../../images/left_a.png) no-repeat -230px -684px;}
+.mic{ width:62px; height:12px; margin:6px 5px 0 5px; background:url(../../images/left_a.png) no-repeat -18px -454px;}
+.mic-on{ background-position:-18px -474px;}
+.l-tools-a .switch{ margin:3px 0 0}
+.l-tools-a .msg{ width:44px; height:24px; margin-right:5px; padding-right:5px; font:500 12px/24px SimSun; text-align:right; color:#38cbc6; background:url(../../images/left_a.png) no-repeat -10px -235px;}
+.l-tools-a .msg-no{ background-position:-10px -266px; font-size:0; line-height:0; overflow:hidden;}
+
+.line-a{ height:10px; overflow:hidden; margin:0 auto; background:url(../../images/line.png) repeat-x;}
+.line-b{ width:130px; height:14px; overflow:hidden; margin:0 auto; border-top:1px solid #464646;}
+.chat-tools{padding:5px 0 0;}
+.chat-tools li{ float:left; margin:0 1px 5px 8px;}
+.chat-tools li a{ float:left; width:68px; height:31px; background:url(../../images/tools_a.png) no-repeat}
+.chat-tools li a.whb{ background-position: -2px -47px}
+.chat-tools li a.whb:hover{ background-position: -2px -90px}
+.chat-tools li a.whb-on{ background-position: -2px -5px}
+.chat-tools li a.whb-no{ background-position: -2px -129px}
+.chat-tools li a.doc{ background-position: -74px -47px}
+.chat-tools li a.doc:hover{ background-position: -74px -90px}
+.chat-tools li a.doc-on{ background-position: -74px -5px}
+.chat-tools li a.doc-no{ background-position: -75px -129px}
+.chat-tools li a.doc-no:hover{ background-position: -76px -164px}
+.chat-tools li a.app{ background-position: -146px -47px}
+.chat-tools li a.app:hover{ background-position: -146px -90px}
+.chat-tools li a.app-on{ background-position: -146px -5px}
+.chat-tools li a.app-no{ background-position: -146px -129px}
+.chat-tools li a.scr{ background-position: -218px -47px}
+.chat-tools li a.scr:hover{ background-position: -218px -90px}
+.chat-tools li a.scr-on{ background-position: -218px -5px}
+.chat-tools li a.scr-no{ background-position: -218px -129px}
+.tea-v{width:282px; height:212px; margin:5px auto 0; border:2px solid #1cb3ae; background:url(../../images/nocarm_c.jpg) no-repeat;}
+.tea-v-off{ background:url(../../images/nocarm_c_off.jpg) no-repeat;}
+.tea-v-no{ background:url(../../images/nocarm_c_no.jpg) no-repeat;}
+.stu-opr{ position:relative; padding:0 0 10px; background:#3a3a3a url(../../images/left_bg_a.png) repeat-x bottom;}
+.stu-opr dd{ height:auto; overflow:hidden; zoom:1; padding:5px 10px 3px;}
+.stu-opr dd strong{ float:left; font:500 12px/24px SimSun; color:#fff; margin-right:5px;}
+.stu-opr dd .switch{ margin:3px 0 0}
+.stu-opt-a {width:155px;}
+.stu-opt-a dd{padding:5px 0 3px;}
+.stu-opt-a dd .switch{float:right;}
+.stu-opr .video{float:left; width:114px; height:84px; margin:7px 15px 0 18px; border:2px solid #1cb3ae; background:url(../../images/nocarm_b.jpg) no-repeat;}
+.stu-opr .video-off{background:url(../../images/nocarm_b_off.jpg) no-repeat;}
+.stu-opr .video-no{background:url(../../images/nocarm_b_no.jpg) no-repeat;}
+.stu-opr .stu-opt-a strong.fr{float:right; margin:2px 0 0;}
+.stu-opt-a strong i{ cursor:pointer; float:left; width:20px; height:20px; margin-left:3px; background:url(../../images/left_a.png) no-repeat;}
+.stu-opt-a strong i.m{ background-position:-121px -345px}
+.stu-opt-a strong i.m-on{ background-position:-10px -345px}
+.stu-opt-a strong i.m-no{ background-position:-231px -345px}
+.stu-opt-a strong i.c{ background-position:-142px -345px}
+.stu-opt-a strong i.c-on{ background-position:-31px -345px}
+.stu-opt-a strong i.c-no{ background-position:-252px -345px}
+.stu-opt-a strong i.s-on{ background-position:-53px -345px}
+.stu-opt-a strong i.s-no{ background-position:-274px -345px}
+.stu-opt-a strong i.s-no-xa{ background-position:-121px -386px;}
+.stu-opt-a strong i.s-no-xb{ background-position:-142px -386px;}
+.handup-list{ position:absolute; top:-115px; right:-300px; z-index:100; width:250px; height:400px; background:#333; border-radius:7px;}
+.handup-list .title{ height:16px; padding:16px 20px; border-bottom:1px solid #292929;}
+.handup-list .title-l{ font:700 12px/16px SimSun; color:#999;}
+.handup-list .title-l em{ font-weight:500}
+.handup-list i{ color:#23b9b4;}
+.handup-list .close{ width:16px; height:16px; background:url(../../images/close_a.png) no-repeat;}
+.handup-list-cont{height:295px;padding:5px 0 0 20px; border-top: 1px solid #3f3f3f;}
+.handup-list-cont p{ font:500 12px/30px SimSun; color:#999; }
+.handup-list-cont ul{ padding:5px 0 0; width:230px; height:260px; overflow:auto; overflow-x:hidden; }
+.handup-list-cont li{ height:24px; margin:0 0 5px; padding-right:5px;}
+.handup-list-cont li strong{ float:left; margin-right:5px; font:500 12px/24px SimSun; color:#999;}
+.handup-list-cont i.m, .handup-list-cont i.c{ cursor:pointer; float:left; width:20px; height:20px; margin-left:3px;margin-top: 2px; background:url(../../images/left_a.png) no-repeat;}
+.handup-list-cont i.m{ background-position:-121px -345px}
+.handup-list-cont i.m-on{ background-position:-10px -345px}
+.handup-list-cont i.m-no{ background-position:-231px -345px}
+.handup-list-cont i.c{ background-position:-142px -345px}
+.handup-list-cont i.c-on{ background-position:-31px -345px}
+.handup-list-cont i.c-no{ background-position:-252px -345px}
+.handup-list-cont .sbtn{ float:right; width:50px; height:24px; font-size:0; line-height:0; overflow:hidden; background:url(../../images/left_a.png) no-repeat -12px -381px;}
+.handup-list-cont .sbtn:hover{ background-position:-12px -412px}
+.handup-list .endbtn{ display:block; width:118px; height:28px; margin:10px auto 0; font:500 12px/28px SimSun; text-align:center; color:#31c4c0; background:url(../../images/left_a.png) no-repeat -6px -511px;}
+.handup-list .endbtn:hover{ text-decoration:none; color:#fff;}
+.serbar{ height:24px; margin:10px 0; padding:0 5px;}
+.serbar .add-stu{display:inline-block; height:24px; width:45px; background:url(../../images/left_a.png) no-repeat -286px -1px}
+.serbar-l{ font:500 12px/24px SimSun; color:#fff;}
+.serbar-l em{ color:#1cb3ae;}
+.serbar-r .ser-bg{ float:left; width:105px; height:22px; background:#232323; border-radius:10px;}
+.serbar-r .ser-bg .txt{ width:70px; height:14px; padding:4px 2px 4px 8px; font:500 12px/14px SimSun; color:#676767; background:none;}
+.serbar-r .ser-bg .btn{ width:25px; height:22px; background:url(../../images/left_a.png) no-repeat -311px -54px;}
+.serbar-r em{ cursor:pointer; float:right; width:24px; height:20px; padding:0 5px; background:#3a3a3a url(../../images/left.png) no-repeat 5px -103px}
+.serbar-r em.on{background-position:5px -141px}
+
+.chat-tools-b{ border:none;}
+.hand-up{ padding:32px 10px 0 0;}
+.hand-up .handup{ width:118px; height:32px; margin-right:5px; background:url(../../images/left_a.png) no-repeat -6px -53px;}
+.hand-up .handup-no{ background-position:-5px -16px}
+.hand-up .msg-btn{ width:24px; height:24px; margin:5px 0 0; margin-right:5px; background:url(../../images/left_a.png) no-repeat -129px -19px;}
+.hand-up .msg-btn-no{ background-position:-130px -56px}
+.t-pic{ width:86px; height:64px; margin:0 auto 20px; border:2px solid #000;}
+.t-pic-on{border:2px solid #1eaaa5;}
+.t-pic a{ display:block; width:86px; height:64px;}
+.t-pic img{ max-height:64px; max-width:86px;}
+.t-pic p{ height:22px; margin:5px 0 0; font:500 12px/22px SimSun; color:#bdbdbd;}
+.left-sub .student-list{ height:440px; padding:5px 0 0; overflow:scroll; overflow-x:hidden;}
+.left-sub .student-list-b{ height:460px; padding:5px 0 0; overflow:hidden;}
+.left-sub .student-list-c{ height:345px; padding:5px 0 0; overflow:hidden;}
+.left-sub .student-list-a{ height:380px;}
+.left-sub .student-list dd{ float:left; width:136px; height:auto; margin:0 7px 5px; overflow:hidden; zoom:1; }
+.left-sub .student-list dd a{ display:block; width:114px; height:84px; margin:0 auto; background:url(../../images/nocarm_b.jpg) no-repeat; border:1px solid #000;}
+.left-sub .student-list dd .a-off{ background:url(../../images/nocarm_b_off.jpg) no-repeat; }
+.left-sub .student-list dd .a-no{ background:url(../../images/nocarm_b_no.jpg) no-repeat; }
+.left-sub .student-list dd p{ height:20px; margin:5px 0 0; font:500 12px/20px SimSun; color:#999;}
+.left-sub .student-list dd p span.fl{width:40px; height:20px; overflow:hidden; text-overflow:ellipsis;white-space: nowrap;}
+.left-sub .student-list dd strong i{ cursor:pointer; float:left; width:20px; height:20px; margin-left:3px; background:url(../../images/left_a.png) no-repeat;}
+.left-sub .student-list dd strong i.m{ background-position:-121px -345px}
+.left-sub .student-list dd strong i.m-on{ background-position:-10px -345px}
+.left-sub .student-list dd strong i.m-no{ background-position:-231px -345px}
+.left-sub .student-list dd strong i.c{ background-position:-142px -345px}
+.left-sub .student-list dd strong i.c-on{ background-position:-31px -345px}
+.left-sub .student-list dd strong i.c-no{ background-position:-252px -345px}
+.left-sub .student-list dd strong i.d-on{ background-position:-75px -345px}
+.left-sub .student-list dd strong i.d-no{ background-position:-296px -345px}
+.left-sub .student-list dd strong i.s-on{ background-position:-53px -345px}
+.left-sub .student-list dd strong i.s-no{ background-position:-274px -345px}
+.left-sub .student-list dd strong  i.s-no-xa{ background-position:-121px -386px;}
+.left-sub .student-list dd strong  i.s-no-xb{ background-position:-142px -386px;}
+
+
+.left-sub .student-list dd .ml{margin-left:35px;}
+
+.left-sub .stau{padding-left:20px; margin:5px 10px 0 0;font: 500 12px/20px SimSun;color: #fff;}
+.left-sub .stau strong.fr{float:right; margin:2px 0 0;}
+.stau strong i{ cursor:pointer; float:left; width:20px; height:20px; margin-left:3px; background:url(../../images/left_a.png) no-repeat;}
+.stau strong i.m{ background-position:-121px -345px}
+.stau strong i.m-on{ background-position:-10px -345px}
+.stau strong i.m-no{ background-position:-231px -345px}
+.stau strong i.c{ background-position:-142px -345px}
+.stau strong i.c-on{ background-position:-31px -345px}
+.stau strong i.c-no{ background-position:-252px -345px}
+.stau strong i.s-on{ background-position:-53px -345px}
+.stau strong i.s-no{ background-position:-274px -345px}
+.stau strong i.s-no-xa{ background-position:-121px -386px;}
+.stau strong i.s-no-xb{ background-position:-142px -386px;}
+
+.left-sub .student-list dd.on a{ border-color:#1eaaa5;}
+.left-sub .student-list dd.msg a{animation:borderColor 1s infinite;-moz-animation:borderColor 1s infinite; -webkit-animation:borderColor 1s infinite; -o-animation:borderColor 1s infinite; }
+.left-sub .student-list dd img{ max-height:60px; max-width:82px;}
+@keyframes borderColor{30%{border-color:#000;}60%{border-color:#f60;}}
+@-moz-keyframes borderColor{30%{border-color:#000;}60%{border-color:#f60;}}
+@-webkit-keyframes borderColor{30%{border-color:#000;}60%{border-color:#f60;}}
+@-o-keyframes borderColor{30%{border-color:#000;}60%{border-color:#f60;}}
+
+@keyframes txtColor{30%{color:#666;}60%{color:#f00;}}
+@-moz-keyframes txtColor{30%{color:#666;}60%{color:#f00;}}
+@-webkit-keyframes txtColor{30%{color:#666;}60%{color:#f00;}}
+@-o-keyframes txtColor{30%{color:#666;}60%{color:#f00;}}
+
+.right .num .lock, .right .num .add-stu, .right .num .pop-num .addbtn, .right .title h5, .right .title .seh, .right .stu-list li a, .right .title .clearup, .chat .emo .clearup, .chat .emo a, .chat .cont .sent, .chat .cont-a .sent, .tip-pop, .chat-a .cont-a .sent, .chat-a .emo a, .toolbar-r li, .toolbar-r li a{ background:url(../../images/right.png) no-repeat}
+.right{position:absolute; right:0; top:30px; width:314px; background:url(../../images/right_bg.jpg) repeat-y; border-top:3px solid #3f7a7a;}
+.right-main{ position:relative; float:right; width:300px; height:100%;}
+.right .num{ height:24px; padding:0 15px;}
+.right .num em{margin-right:10px; color:#585858; font:500 12px/24px SimSun;}
+.right .num .w152{ width:152px; margin:4px 0; background:#ccc; border-radius:5px;}
+.right .num .proceess{ width:152px; height:16px; margin-right:5px; text-align:center; font:500 12px/16px SimSun; color:#0a0912; background:url(../../images/prebar.jpg) no-repeat; }
+.right .num .lock{width:24px; height:24px; margin:0 5px; background-position: 0 -48px; }
+.right .num .add-stu{width:24px; height:24px;background-position: -30px -48px; }
+.right .num .lock:hover{ background-position: 0 -6px; }
+.right .num .add-stu:hover{background-position: -30px -6px; }
+.right .num .pop-num{ position:absolute; left:0; top:33px; z-index:100; width:300px; height:55px; padding-top:35px; background:#3f7e7e;}
+.right .num .arrow{ position:absolute; right:23px; top:28px;height:0; width:0; line-height:0; border-bottom:5px solid #3f7e7e; border-left:5px solid transparent ; border-right:5px solid transparent ;}
+.right .num .arrow-a{ position:absolute; right:52px; top:28px;height:0; width:0; line-height:0; border-bottom:5px solid #3f7e7e; border-left:5px solid transparent ; border-right:5px solid transparent ;}
+.right .num .pop-num p{ padding:0 0 0 25px; font:500 12px/32px SimSun; color:#fff;}
+.right .num .pop-num .addnum{ height:14px; width:120px; padding:7px 5px; font:500 12px/14px SimSun; color:#fff; background:#79a5a5; border:2px solid #457070; border-radius:5px; }
+.right .num .pop-num .addbtn{ margin-left:5px; cursor:pointer; width:58px; height:32px; background-position:-442px -201px;}
+.right .title{ height:36px; padding:0 10px; background:url(../../images/title_bg.png) repeat-x 0 -91px;}
+.right .title h5{ cursor:pointer; float:left; padding-left:20px; font:500 12px/36px SimSun; color:#676767; background-position:-6px -111px;}
+.right .title h5.on{ background-position:-6px -87px;}
+.right .title .seh{ float:right; width:130px; height:22px; margin:7px; background-position: 0 -396px;}
+.right .title .clearup{ display:block; cursor:pointer; height:36px; padding-left:15px; font:500 12px/36px SimSun; color:#959595; background-position: -5px -214px;}
+.right .seh .txt{ width:85px; height:14px; padding:4px 5px 4px 10px; font:500 12px/14px SimSun; color:#676767; background:none;}
+.right .seh .btn{ cursor:pointer; height:22px; width:22px; background:none;}
+.right .stu-list{ width:280px; height:290px; padding:0 10px; overflow:scroll; overflow-x:hidden;}
+.right .stu-list li{ height:26px; margin:3px 0;}
+.right .stu-list li strong{ float:left; font:500 12px/26px SimSun; color:#4d4d4d;}
+.right .stu-list li strong.red{ color:#f00}
+.right .stu-list li strong.bold{ font-weight:700}
+.right .stu-list li .img{ position:relative; float:left; width:26px; height:26px; margin-right:5px;}
+.right .stu-list li .img img{ max-width:26px; max-height:26px;}
+.right .stu-list li .img-frm{ position:absolute; left:0; top:0; display:inline-block; width:26px; height:26px; background:url(../../images/img-frm.png) no-repeat;}
+.right .stu-list li a{ float:left; width:20px; height:26px; margin:0 5px 0 0;}
+.right .stu-list li .fr a{ margin:0 0 0 5px;}
+.right .stu-list li a.msg{ background-position:-480px -272px}
+.right .stu-list li a.msg-on{ background-position:-480px -310px}
+.right .stu-list li a.mic{ background-position:-480px -349px}
+.right .stu-list li a.mic-on{ background-position:-480px -434px}
+.right .stu-list li a.mic-ona{ background-position:-480px -391px}
+.right .stu-list li a.cam{ background-position:-480px -474px}
+.right .stu-list li a.cam-on{ background-position:-479px -557px}
+.right .stu-list li a.cam-ona{ background-position:-480px -513px}
+.right .stu-list li a.note{ background-position:-479px -597px}
+.right .stu-list li a.note-on{ background-position:-478px -644px}
+.right .stu-list li a.hi{ background-position:-479px -690px}
+.right .stu-list li a.hi-on{ background-position:-478px -738px}
+.right .chat-box{ width:280px; height:320px; padding:0 10px 10px; overflow:scroll; overflow-x:hidden; border-bottom:1px solid #b4b4b4;}
+.right .chat-box-a{ height:400px;}
+.right .chat-box p{ font:500 12px/22px SimSun; color:#666;}
+.right .chat-box p strong{ color:#0c65a9;}
+.right .chat-box p em{ font:500 12px/24px SimSun; color:#999;}
+.right .chat-box p em i{ color:#d15b0d;}
+.right .chat{ height:90px; padding:5px 10px; border-top:1px solid #fff;}
+.right .chat .emo{ height:20px;}
+.right .chat .emo a{ float:left; width:20px; height:20px; background-position:-5px -270px}
+.right .chat .cont{ height:65px; margin:5px 0 0; background:#d2d2d2;}
+.right .chat .cont textarea{ height:55px; width:206px; max-height:55px; max-width:206px; padding:5px; font:500 12px/20px SimSun; color:#767676; background:none;}
+.right .chat .cont .sent{ cursor:pointer; position:absolute; right:8px; top:9px; width:48px; height:48px; background-position:-452px -96px;}
+.right .chat .cont .sent:hover{ background-position:-452px 0;}
+.right .chat .cont .sent-g{ cursor:default; color:#999; background:#eee; border-radius:5px;}
+.right-main .handle{ position:absolute; left:-14px; top:150px; width:14px; height:54px; background-position:-2px -198px;}
+.right-main .handle-on{ background-position:-2px -283px;}
+.tip-pop{ position:absolute; left:-100px; top:162px; width:85px; height:28px; font:500 12px/28px SimSun; color:#fff; text-align:center; background-position:0 -610px;}
+.right .name{ font:500 12px/20px SimSun; color:#a4a4a4;}
+.right .name strong{ float:left; margin-right:5px; font:700 14px/20px SimSun; color:#595959;}
+.right .name-a, .right .name-a strong{ line-height:28px;}
+.right .name i{ float:left; width:20px; height:20px; margin-right:5px; background:url(../../images/statu.png) no-repeat;}
+.right .name-a i{ height:28px; background-position:0 4px;}
+.right .name i.o{ background-position: 0 -54px;}
+.right .name i.b{ background-position:0 -113px}
+.right .name-a i.o{ background-position: 0 -50px;}
+.right .name-a i.b{ background-position:0 -109px}
+.right .name em{ cursor:pointer; float:left; width:28px; height:27px; margin:0 10px 0 0;}
+.right .name .mic{ background-position: -372px -1px}
+.right .name .mic-on{ background-position: -372px -124px}
+.right .name .mic-no{ background-position: -372px -59px}
+.right .name .cam{ background-position: -372px -311px}
+.right .name .cam-on{ background-position: -372px -382px}
+.right .name .cam-no{ background-position: -269px -311px}
+.right .tea-list{ padding:0 5px 0 12px; }
+.right .tea-list dd{ position:relative; float:left; width:86px; height:64px; margin:0 3px;}
+.right .tea-list dd a{ display:block; width:82px; height:60px; border:2px solid #000;}
+.right .tea-list dd em{ display:block; position:absolute; left:2px; bottom:2px; width:21px; height:21px; background-position: -1px -794px}
+.right .tea-list dd.on a{ border-color:#1eaaa5;}
+.right .tea-list dd img{ max-height:60px; max-width:82px;}
+.toolbar-r{ padding-left:15px;}
+.toolbar-r li{ cursor:pointer; float:left; width:31px; height:31px; margin:0 10px 0 0; background-position:0 -746px;}
+.toolbar-r li:hover, .toolbar-r li.on{ background-position:-65px -746px}
+.toolbar-r li a{ display:block; width:31px; height:31px;}
+.toolbar-r li a.cam{ background-position: 5px -687px}
+.toolbar-r li a.cam-no{ background-position: -137px -749px}
+.toolbar-r li a.mic{ background-position:-57px -686px}
+.toolbar-r li a.mic-no{ background-position:-190px -748px}
+.toolbar-r li a.note{ background-position:-114px -687px}
+.toolbar-r li a.note-no{ background-position:-243px -748px}
+.toolbar-r li a.word{ background-position:-172px -686px}
+.toolbar-r li a.word-no{ background-position:-298px -747px}
+.toolbar-r li a.img{ background-position:-225px -686px}
+.toolbar-r li a.img-no{ background-position:-347px -747px}
+.line-c{ width:270px; height:1px; margin:0 auto; overflow:hidden; border-bottom:1px solid #fff; background:#d3d3d3;}
+
+.center{ position:relative; margin:20px 0; margin-left:354px; margin-right:70px; background:#000}
+.center-a{ margin-left:20px;}
+.center .toolbar dd a, .center .quick-opr a, .center .toolbar .close, .tip-box h4 .close{ background:url(../../images/center.png) no-repeat;}
+.center .toolbar{ position:absolute; bottom:0; left:0; width:100%; height:34px!important; background:url(../../images/title_bg.png) repeat-x  0 -148px}
+.center .toolbar-cont{ padding:4px 15px;}
+.center .toolbar dd{ position:relative; float:left; width:36px; height:26px; margin:0 3px;}
+.center .toolbar dd a{ display:inline-block; width:36px; height:26px;}
+.center .toolbar dd a:hover, .center .toolbar dd a.on{width:34px; height:24px; border:1px solid #666; border-radius:3px;}
+.center .toolbar dd a.a{ background-position:7px 3px}
+.center .toolbar dd a.b{ background-position:3px -38px;}
+.center .toolbar dd a.c{ background-position:3px -84px}
+.center .toolbar dd a.d{ background-position:9px -142px}
+.center .toolbar dd a.e{ background-position:6px -197px}
+.center .toolbar dd a.f{ background-position:6px -257px}
+.center .toolbar dd a.g{ background-position:3px -311px}
+.center .toolbar dd a.h{ background-position:6px -390px}
+.center .toolbar dd a.i{ background-position:6px -463px}
+.center .toolbar .color-select{ position:absolute; top:-70px; left:6px; width:302px;height:32px; padding:10px; background:#3a3a3a; border:1px solid #9b9b9b;}
+.center .toolbar .color-select a:hover{ border:none;}
+.center .toolbar .line-box{ position:absolute; top:-148px; left:2px; width:180px; height:120px; overflow:auto; overflow-x:hidden; padding:10px 30px 0 10px; background:#3a3a3a; border:1px solid #9b9b9b;}
+.center .toolbar .line-box li{ display:block; width:170px; padding:7px; margin:0 0 10px; background:#282828;}
+.center .toolbar .line-box li i{ cursor:pointer; display:block; height:1px;}
+.center .toolbar .line-box li .a{ border-bottom:1px solid #fff;}
+.center .toolbar .line-box li .b{ border-bottom:1px dashed #fff;}
+.center .toolbar .line-box li .c{ border-bottom:3px solid #fff;}
+.center .toolbar .line-box li .d{ border-bottom:20px solid #fff;}
+.center .toolbar .word-box{ position:absolute; top:-104px; left:4px; width:165px; padding:10px; background:#3a3a3a; border:1px solid #9b9b9b;}
+.center .toolbar .word-box p{ font:500 12px/30px SimSun; color:#fff;}
+.center .toolbar .word-box input{ width:155px; height:16px; padding:10px 5px; font:500 14px/16px SimSun; color:#333; background:#fff; border-radius:6px; }
+.center .toolbar .close{ cursor:pointer; position:absolute; top:5px; right:5px; display:block; width:10px; height:10px; background-position:-1px -514px}
+.center .quick-opr{ position:absolute; left:10px; top:10px; width:38px; height:auto; overflow:auto;}
+.center .quick-opr a{ display:block; width:38px; height:38px; margin:0 0 10px;}
+.center .quick-opr a.a{ background-position: -137px 0}
+.center .quick-opr a.aon{ background-position: -197px 0}
+.center .quick-opr a.b{ background-position: -137px -80px}
+.center .quick-opr a.bon{ background-position: -197px -80px}
+.center .quick-opr a.c{ background-position: -137px -165px}
+.center .quick-opr a.con{ background-position: -197px -165px}
+.center .page a{ display:inline-block; margin:0 7px; font:500 12px/34px SimSun; color:#fff;}
+.center .page a.a{ color:#1cb3ae}
+.center .page span{ display:inline-block; margin:0 7px; font:500 12px/34px SimSun; color:#fff;}
+.center .page span em{ color:#2abeba; font-weight:700;}
+.center .page a:hover{ color:#eaee79;}
+.center-main{ margin:0 110px 34px; background:#000;}
+.center-main-a{ background:#fff;}
+.center-main-b{ margin:0 0px 0px; background:#000;}
+
+
+.chat-pop{ position:absolute; left:500px; top:100px; z-index:1000; width:350px; height:300px; background:#fff;}
+.chat-pop .title{ height:27px; padding:3px 5px 2px; background:url(../../images/chat_bg.png) repeat-x;}
+.chat-pop .title p{ margin-left:5px; font:700 12px/27px SimSun; color:#000;}
+.chat-pop .title p em{ font-weight:500; color:#757575; margin-left:5px;}
+.chat-pop .title .close-a{ cursor:pointer; height:27px; width:14px; background:url(../../images/close_b.jpg) no-repeat 0 7px;}
+.chat-pop-main{ width:346px; height:264px; padding:1px; border:1px solid #b4b4b4;}
+.chat-pop-main .cont{ width:326px; height:154px; padding:5px 10px; background:#ebebeb; overflow:auto; border-bottom:1px solid #b4b4b4;}
+.chat-pop-main .cont p{ font:500 12px/20px SimSun; color:#666;}
+.chat-pop-main .cont p strong{ color:#d15b0d;}
+.chat-pop-main .cont p em{ color:#0c65a9;}
+.chat-a{ height:90px; padding:5px 10px; border-top:1px solid #fff; background:#ebebeb;}
+.chat-a .emo{ height:20px;}
+.chat-a .emo a{ float:left; width:20px; height:20px; background-position: -5px -270px;}
+.chat-a .cont-a{ height:65px; margin:5px 0 0; background:#d2d2d2;}
+.chat-a .cont-a textarea{ height:55px; width:257px; max-height:55px; max-width:257px; padding:5px; font:500 12px/20px SimSun; color:#767676; background:none;}
+.chat-a .cont-a .sent{ cursor:pointer; position:absolute; right:8px; top:9px; width:48px; height:48px; background-position:-452px -96px}
+.chat-a .cont-a .sent:hover{ background-position:-452px 0;}
+
+.tip-box{ /*position:absolute;*/ left:700px; top:300px; z-index:1000; width:290px; height:auto; padding-bottom:20px; zoom:1; background:#fff;}
+.tip-box-a{left:auto; right:500px; top:100px;}
+.tip-box-b{left:auto; right:500px; top:300px;}
+.tip-box h4{ position:relative; padding:0 15px; height:32px; font:500 14px/32px SimSun; color:#fff; background:#3f7e7e;}
+.tip-box h4.red{ background:#f00;}
+.tip-box h4 .close{ cursor:pointer; position:absolute; display:block; right:5px; top:8px; width:16px; height:16px; background-position:0 -574px}
+.tip-box p{ margin:20px 0; padding:0 20px; font:500 14px/24px SimSun; color:#5c5c5c; text-align:center;}
+.tip-box .btn{display:inline-block; height:26px; padding:0 25px; font:700 14px/26px SimSun; color:#fff; background:#327474;}
+.tip-box .btn:hover{ text-decoration:none; background:#f60;}
+.tip-box-a p{ margin:10px 0;}
+.tip-box-a .txt input{ width:150px; height:14px; padding:5px; font:500 12px/14px SimSun; color:#333; border:1px solid #ccc; border-radius:5px;}
+.tip-box-b p{ text-align:left; margin:5px 0;}
+.tip-box-b .btn{ margin:0 10px; background:#f00}
+.tip-box-b .btn:hover{ background:#f60}
+.tip-box-b .radio{ padding-left:20px;}
+.tip-box-b .radio span{ display:block; height:24px; margin:0 0 10px; font:500 14px/24px SimSun; color:#666;}
+.tip-box-b .radio span .rad{ vertical-align:middle; margin:-2px 0 3px 0;}
+.tip-box-b .radio span .txt{ height:12px; width:48px; padding:4px 5px; margin:0 5px; font:500 12px/12px SimSun; color:#666; border:1px solid #ccc; border-radius:5px;}
+.tip-box-b .radio span em{ font:500 12px/24px SimSun; color:#f00;}
+
+.pop-word{ position:absolute; left:800px; top:500px; width:240px; height:75px; background:#4f4f4f; border-radius:5px; opacity:0.7; -moz-opacity:0.7;}
+.pop-word p{ margin:20px 0 0; font:700 14px/30px SimSun; color:#fff; text-align:center;}
+
+
+.m-right{position:fixed; right:11px; top:70px; }
+.msg-ico{display:block; width:48px; height:23px; padding:25px 0 0;  font-size:0; line-height:0; overflow:hidden; text-align:center; background:url(../../images/msg_ico.png) no-repeat}
+.msg-ico-on{ font:700 12px/18px SimSun; color:#7aa944; background-position:0 -68px}
+.msg-ico-on:hover{text-decoration:none;}
+.prv-ico{display: block;width: 48px;height: 23px;padding: 25px 0 0;margin-top:23px;background: url(../../images/icon_prv.png) no-repeat;font-size: 0;line-height: 0;overflow: hidden;text-align: center;}
+.prv-ico-on{background-position: 0 -68px;}
+.prv-ico-g{background-position: 0 -136px;}
+.invitation-ico{ margin-top: 23px;display: block; width: 48px; height:48px; font-size: 0; line-height: 0; overflow: hidden; text-align: center; background: url(../../images/invitation_ico.png) no-repeat }
+.invitation-ico:hover{background: url(../../images/invitation_ico_h.png) no-repeat; }
+.video-ico{ margin-top: 23px;display: block; width: 48px; height:48px; font:700 12px/48px SimSun; color:#aeacac; overflow: hidden; text-align: center; background: url(../../images/video_ico.png) no-repeat }
+.video-ico:hover{background: url(../../images/video_ico.png) no-repeat;background-position: 0 -68px;text-decoration:none;color:#7aa944;}
+.ques-ico{margin-top: 23px;display: block; width: 48px; height:48px; font-size: 0; line-height: 0; overflow: hidden; text-align: center; background: url(../../images/ques_ico.png) no-repeat }
+.ques-ico:hover{background: url(../../images/ques_ico_h.png) no-repeat }
+.msg-box{ position:fixed; right:70px; top:50px; width:300px; height:480px; background:#333;}
+.msg-box .title{ height:16px; padding:16px 20px; border-bottom:1px solid #292929;}
+.msg-box .title-l{ font:700 12px/18px SimSun; color:#999;}
+.msg-box .title-r{ cursor:pointer;margin-right: 10px; font:500 12px/18px SimSun; color:#999;}
+.msg-box .close{ width:16px; height:16px; background:url(../../images/close_a.png) no-repeat;}
+.msg-box .cont{ height:308px; padding:5px 20px; border-top:1px solid #3f3f3f; border-bottom:1px solid #292929; overflow:auto; overflow-x:hidden}
+.msg-box .cont p{margin:7px 0; font:500 12px/22px SimSun; color:#aeacac;word-wrap: break-word; word-break: break-all;}
+.msg-box .cont p strong{ color:#ffba00;}
+.msg-box .cont p strong p{ font:500 12px/22px SimSun; color:#ffba00;}
+.msg-box .cont p em{ font:500 12px/24px SimSun; color:#fff;}
+.msg-box .cont p em i{ color:#aeacac;}
+.msg-box .chat{ height:100px; padding:5px 0; border-top:1px solid #3f3f3f; background:#373737;}
+.msg-box .chat .emo{ height:20px; padding:0 15px;}
+.msg-box .chat .emo a{ float:left; width:21px; height:21px; margin-right:15px; background-position:-5px -270px}
+.msg-box .chat .emo a.font{ background-position: -173px -270px;}
+.msg-box .chat .emo .clearup{ display:block; cursor:pointer; height:18px; padding-left:15px; font:500 12px/18px SimSun; color:#959595; background-position: -5px -222px;}
+.msg-box .chat .cont-a{ width:280px; height:70px; margin:5px auto 0; background:#212121}
+.msg-box .chat .cont-a textarea{ height:55px; width:206px; max-height:55px; max-width:206px; padding:5px; font:500 12px/20px SimSun; color:#999; background:#212121;}
+.msg-box .chat .cont-a .sent{ cursor:pointer; position:absolute; right:8px; top:9px; color:#999; width:48px; height:48px; background-position: -452px -96px;}
+.msg-box .chat .cont-a .sent:hover{ background-position:-452px 0;}
+.msg-box .chat .cont-a .sent-g{ cursor:default; color:#999; background:#eee; border-radius:5px;}
+
+.msg-box-a{ position:fixed; right:80px; top:70px; width:300px; height:auto; background:#333; border-radius:7px;}
+.msg-box-a .title{ height:16px; padding:16px 20px; border-bottom:1px solid #292929;}
+.msg-box-a .title-l{ font:700 12px/18px SimSun; color:#999;}
+.msg-box-a .title-r{ cursor:pointer;margin-right: 10px; font:500 12px/18px SimSun; color:#999;}
+.msg-box-a .close{ width:16px; height:16px; background:url(../../images/close_a.png) no-repeat;}
+.msg-box-a .cont{ height:308px; padding:5px 20px; border-top:1px solid #3f3f3f; border-bottom:1px solid #292929; overflow:auto; overflow-x:hidden}
+.msg-box-a .cont p{margin:7px 0; font:500 12px/22px SimSun; color:#aeacac;word-wrap: break-word; word-break: break-all;}
+.msg-box-a .cont p strong{ color:#ffba00;}
+.msg-box-a .cont p strong p{ font:500 12px/22px SimSun; color:#ffba00;}
+.msg-box-a .cont p em{ font:500 12px/24px SimSun; color:#fff;}
+.msg-box-a .cont p em i{ color:#aeacac;}
+.msg-box-a .chat{ height:100px; padding:5px 0; border-top:1px solid #3f3f3f; background:#373737;border-bottom-left-radius:7px;border-bottom-right-radius:7px;}
+.msg-box-a .chat .emo{ height:20px; padding:0 15px;}
+.msg-box-a .chat .emo a{ float:left; width:20px; height:20px; margin-right:15px; background-position:-5px -270px}
+.msg-box-a .chat .emo a.font{ background-position: -173px -270px;}
+.msg-box-a .chat .emo .clearup{ display:block; cursor:pointer; height:18px; padding-left:15px; font:500 12px/18px SimSun; color:#959595; background-position: -5px -222px;}
+.msg-box-a .chat .cont-a{ width:280px; height:70px; margin:5px auto 0; background:#212121}
+.msg-box-a .chat .cont-a textarea{ height:55px; width:206px; max-height:55px; max-width:206px; padding:5px; font:500 12px/20px SimSun; color:#999; background:#212121;}
+.msg-box-a .chat .cont-a .sent{ cursor:pointer; position:absolute; right:8px; top:9px; color:#999; width:48px; height:48px; background-position: -452px -96px;}
+.msg-box-a .chat .cont-a .sent:hover{ background-position:-452px 0;}
+.msg-box-a .chat .cont-a .sent-g{ cursor:default; color:#999; background:#eee; border-radius:5px;}
+
+.msg-box-a .push-link{padding:0 10px; background: #373737; border-radius: 7px; }
+.msg-box-a .push-link .link-m{padding:3px 0 7px; font: 500 12px/22px SimSun; color: #666 }
+.msg-box-a .push-link .link-m input[type='text']{ height: 14px; width: 160px; padding: 4px; font:500 12px/14px Simsun; color: #666; background: #212121 }
+.msg-box-a .push-link .sent{ cursor:pointer; position:absolute; right:8px; top:9px; color:#999; width:48px; height:48px; background: url(../../images/right.png) no-repeat -452px -96px; }
+.msg-box-a .push-link .sent:hover{background: url(../../images/right.png) no-repeat -452px 0;}
+.msg-box-a .push-btn{ display;block; height:18px; padding-left:20px; cursor:pointer; margin-right: 10px; font:500 12px/18px SimSun; color:#f00; background: url(../../images/icon_send.png) no-repeat center left; background-size: 15px 15px;}
+
+
+.avib-white{ margin-left:20px;}
+.avib-white em{ float:left; margin-right:10px; font:500 12px/34px SimSun; color:#fff}
+.switch{ float:left; width:48px; height:16px; margin:8px 0 0; font:500 12px/16px SimSun; color:#666; text-indent:-9999px; background:url(../../images/on_off.png) no-repeat}
+.switch-off{ background-position:0 -31px}
+.switch-no{ background-position:0 -61px}
+.switch-un, .switch-un:hover{ background:none; text-indent:0; cursor:default; text-decoration:none;}
+.handup-list-a{ position:absolute; right:59px; top:0px; height:360px;}
+.handup-list-a .handup-list-cont{ height:250px;}
+.handup-list-b{ position:absolute; right:59px; top:0px; height:auto;}
+.handup-list-b .handup-list-cont{ height:250px; padding:10px 0; overflow:auto;}
+.handup-list-b .handup-list-cont ul{ padding:5px 0 0 10px; width:220px; height:240px; overflow:auto; overflow-x:hidden; }
+.handup-list-b .handup-list-cont ul li{ width:198px; height:32px; padding-left:22px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font:500 12px/32px SimSun;  color:#999; background:url(../../images/book_ico.png) no-repeat 0 7px;}
+.handup-list-b .handup-list-cont ul li a{ font:500 12px/32px SimSun; color:#999}
+.handup-list-b .handup-list-cont ul li a:hover{ color:#fff; text-decoration:none;}
+.mail-box{ width:190px; height:240px; max-width:190px; max-height:240px; padding:0 5px; margin:10px auto; font:500 12px/24px SimSun; color:#999; border-radius:5px; background:#212121}
+
+.m-video{ width:300px;position:absolute; right:59px; top:0px;height:180px;}
+.m-video .main-video ul{ padding:15px 0 0 10px; }
+.m-video .main-video  span{font:500 12px/25px SimSun; color:#999;padding:15px 0 0 10px;}
+.m-video .main-video ul li{float:right;margin-right: 20px;}
+.m-video .main-video ul li a{ display:block;width:50px;height:25px;text-align:center;font:500 12px/25px SimSun; color:#999}
+.m-video .main-video ul li a.on{display:block;width:50px;height:25px;line-height:25px;background:#474747;border-radius:5px;}
+.m-video .main-video ul li a:hover{ display:block;width:50px;height:25px;line-height:25px;background:#474747;border-radius:5px; color:#fff; text-decoration:none;}
+.m-video .endbtn{display:block; width:82px; height:28px; margin:30px auto 0; font:500 12px/28px SimSun; text-align:center; color:#31c4c0; background:url(../../images/left_a.png) no-repeat -245px -90px;}
+.m-video .endbtn:hover{ text-decoration:none; background:url(../../images/left_a.png) no-repeat -245px -131px;}
+
+.pop-employ{position: absolute;top:50%;left:50%;width: 318px;height:auto; padding-bottom: 20px; overflow:hidden; font:500 16px/30px 'Microsoft YaHei';color:#666;background: #333;border-radius: 7px;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);z-index: 999;}
+.pop-employ .title{padding: 10px 20px 10px 10px;border-bottom: 1px solid #292929;overflow: hidden;}
+.pop-employ .prv-con{padding: 20px 10px 0 20px;border-top: 1px solid #3f3f3f;}
+.pop-employ .close{width: 16px;height: 16px;margin-top:5px;background: url(../../images/icon_cose_spec.png) no-repeat;}
+.pop-employ .title .nav{color:#666;}
+.pop-employ .title .nav span{display:inline-block;font:500 16px/32px 'Microsoft YaHei';padding:0 10px;margin-right: 3px;cursor: pointer;}
+.pop-employ .title .nav span.on{color:#fff;background: #464646;border-radius: 7px;}
+.pop-employ .prv-box{display: none;}
+.pop-employ .prv-box.on{display: block;}
+.pop-employ .choose{overflow: hidden;}
+.pop-employ .choose span{display:inline-block;font:500 14px/30px 'Microsoft YaHei';height: 30px;padding:0 15px;margin:0 5px;background: #292929;border-radius: 7px;cursor: pointer;}
+.pop-employ .choose span.on{background: #464646;color: #fff;}
+.pop-employ .btn-save{display:inline-block;width:110px;font:500 14px/30px 'Microsoft YaHei';height:36px;margin:25px auto auto auto;color:#fff;border:1px solid #292929;background: #505050;border-radius: 7px;text-align: center;text-decoration: none;cursor: pointer;}
+.pop-employ .file-con {margin-top:18px;}
+.pop-employ .file-con input{opacity: 0;width: 100%;position: absolute;top: 0;left: 0;}
+.pop-employ .file-con .lab{display:inline-block;height:25px;line-height:25px;width: 100%;padding:0 8px;margin:5px 0;background: #292929;border-radius: 7px;font-size: 12px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;box-sizing: border-box;}
+.pop-employ .file-con  h2{font:500 16px/30px 'Microsoft YaHei';margin-bottom:6px;}
+.pop-employ .file-con-b{margin-top:10px;}
+.pop-reding{position: absolute;bottom:30px;right: 72px;color: #fff;}
+.pop-reding .sta{padding:10px 20px;background: #333;border-radius: 7px;overflow: hidden;margin:8px 0;height:30px;overflow: hidden;}
+.pop-reding .close{width: 16px;height: 16px;margin-top:7px;margin-left:18px;background: url(../../images/icon_cose_spec.png) no-repeat;}
+.pop-reding .inner{display: inline-block;height:30px;font-family: 'Microsoft YaHei';font-size: 14px;line-height: 30px;color:#666;padding-left: 14px;vertical-align: top;overflow: hidden;}
+.pop-reding .time{display: inline-block;width: 100px;height: 30px;font: 500 18px/30px Arial;color: #a2a2a2;padding-left: 10px;overflow: hidden;}
+.pop-reding .icon-a{display: block;width:30px;height: 30px;background: url(../../images/icon_reding.png) no-repeat;cursor: pointer;}
+.pop-reding .icon-b{display: block;width:30px;height: 30px;background: url(../../images/icon_reding.png) no-repeat;background-position:0 -61px;cursor: pointer;}
+.pop-reding .inner .lab{display: inline-block;height: 30px;font: 500 12px/30px Arial;vertical-align: top;}
+.pop-reding .icon-a:hover,.pop-reding .icon-a.on{background-position: 0 -184px;}
+.pop-reding .icon-b:hover,.pop-reding .icon-b.on{background-position: 0 -119px;}
+#adBox {position:absolute;width:300px;height:100px;left:10px;bottom:20px; display:none} 

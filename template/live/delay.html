@@ -1,0 +1,9 @@
+<div class="tip-box tip-box-b">
+    <h4 class="red">{{COURSE_DELAY}}<em ng-click="$dismiss()" class="close"></em></h4>
+    <p>{{YOUR_CLASS_WILL}}<i>{{vm.data.left_minuts}}{{MINUTES}}</i>{{AFTER_END}}</p>
+    <p>{{NEED_EXTRA_TIME}}</p>
+    <div class="clearfix radio">
+        <span>{{OVERTIME}}<input ng-model="vm.delayTime" type="text" class="txt"/>{{MINUTES}}<em>（{{MAX}}{{vm.data.max_delay}}{{MAX_MINUTES}}）</em></span>
+    </div>
+    <div class="tc"><a href="javascript:void(0)" ng-click="vm.sure()" class="btn">{{YES}}</a><a href="javascript:void(0)" ng-click="$dismiss()" class="btn">{{CANCEL}}</a></div>
+</div>
